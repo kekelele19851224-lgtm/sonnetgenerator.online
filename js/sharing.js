@@ -137,7 +137,8 @@ function shareToPinterest(sonnet) {
     window.open(pinterestUrl, '_blank', 'width=750,height=320');
 }
 
-function shareViaEmail(sonnet) {
+function shareViaEmail() {
+    const sonnet = window.currentSonnet;
     if (!sonnet || !sonnet.lines || !Array.isArray(sonnet.lines) || sonnet.lines.length === 0) {
         console.error('shareViaEmail: Invalid sonnet object or lines array');
         alert('Cannot share: No sonnet content available');
@@ -430,7 +431,7 @@ function showSharingMenu(sonnet) {
                     <span class="option-icon">📌</span>
                     <span class="option-text">Pinterest</span>
                 </button>
-                <button class="sharing-option" onclick="shareViaEmail(currentSonnet)">
+                <button class="sharing-option" onclick="shareViaEmail()">
                     <span class="option-icon">✉️</span>
                     <span class="option-text">Email</span>
                 </button>
